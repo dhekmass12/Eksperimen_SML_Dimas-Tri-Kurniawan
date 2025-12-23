@@ -59,4 +59,4 @@ y = pd.Series(y)
 df = pd.concat([X, y], axis=1)
 
 # Save preprocessed dataset
-df.to_csv("dataset_preprocessing.csv",index=False)
+df.to_csv("preprocessing/dataset_preprocessing.csv",index=False)
