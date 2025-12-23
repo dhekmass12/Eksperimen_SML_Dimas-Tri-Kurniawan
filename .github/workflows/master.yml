@@ -34,7 +34,7 @@ jobs:
       # Run preprocessing automatically
       - name: run preprocessing automatically
         run: |
-          python automate_Dimas-Tri-Kurniawan.py
+          python preprocessing/automate_Dimas-Tri-Kurniawan.py
  
       # Save models to GitHub Repository
       - name: Save mlruns to repo

@@ -4,7 +4,7 @@ import math
 from category_encoders import OrdinalEncoder
 from imblearn.over_sampling import SMOTE
 
-df = pd.read_csv('dataset_raw.csv')
+df = pd.read_csv('../dataset_raw.csv')
 df = df.dropna()
 df = df.rename(columns={'Air temperature [K]': 'Air temperature',
                                 'Process temperature [K]': 'Process temperature',
