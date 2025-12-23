@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+  job-name:
+    permissions:
+      contents: write
  
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE
