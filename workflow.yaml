@@ -1,0 +1,46 @@
+name: workflow
+ 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+ 
+      # Setup Python 3.12.7
+      - name: Set up Python 3.12.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.7"
+ 
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+          pip install matplotlib
+          pip install category-encoders
+          pip install imbalanced-learn
+      
+      # Run preprocessing automatically
+      - name: run preprocessing automatically
+        run: |
+          python automate_Dimas-Tri-Kurniawan.py
+ 
+      # Save models to GitHub Repository
+      - name: Save mlruns to repo
+        run: |
+          git config --global user.name ${{ secrets.username }}
+          git config --global user.email ${{ secrets.email }}
+          git add Eksperimen_SML_Dimas-Tri-Kurniawan/
+          git commit -m "AUTOMATICALLY preprocess dataset"
+          git push origin master
